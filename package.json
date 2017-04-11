@@ -1,6 +1,6 @@
 {
   "name": "react-sortablejs",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "A React component built on top of Sortable (https://github.com/RubaXa/Sortable).",
   "main": "lib/index.js",
   "scripts": {
