@@ -49,8 +49,8 @@ module.exports = class extends React.Component {
                     const remote = store.activeComponent;
                     const remoteItems = remote.sortable.toArray();
 
-                    evt.from.insertBefore(evt.item, store.nextSibling);
-                    
+                    const referenceNode = (store.nextSibling && store.nextSibling.parentNode !== null) ? store.nextSibling : null;
+                    evt.from.insertBefore(evt.item, referenceNode);
                     if (remote !== this) {
                         const remoteOptions = remote.props.options || {};
 
