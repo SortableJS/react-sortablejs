@@ -13,7 +13,10 @@ class Sortable extends Component {
     static propTypes = {
         options: PropTypes.object,
         onChange: PropTypes.func,
-        tag: PropTypes.string,
+        tag: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.func
+        ]),
         style: PropTypes.object
     };
     static defaultProps = {

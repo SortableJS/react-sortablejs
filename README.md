@@ -86,7 +86,9 @@ const SortableList = ({ items, onChange }) => {
                     }
                 }}
 
-                // [Optional] A tag to specify the wrapping element. Defaults to "div".
+                // [Optional] A tag or react component to specify the wrapping element. Defaults to "div".
+                // In a case of a react component it is required to has children in the component
+                // and pass it down.
                 tag="ul"
 
                 // [Optional] The onChange method allows you to implement a controlled component and keep
