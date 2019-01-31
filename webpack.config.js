@@ -1,28 +1,30 @@
-import path from 'path';
-import webpack from 'webpack';
-import pkg from './package.json';
+const path = require('path');
+const webpack = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
+const pkg = require('./package.json');
 
 const banner = pkg.name + ' v' + pkg.version + ' | (c) ' + new Date().getFullYear() + ' ' + pkg.author + ' | ' + pkg.license + ' | ' + pkg.homepage;
 const env = process.env.BUILD_ENV;
-let plugins = [
-    new webpack.BannerPlugin(banner)
-];
 
-if (env === 'dist') {
-    plugins = plugins.concat([
-        new webpack.optimize.UglifyJsPlugin({ minimize: true })
-    ]);
-}
-
-export default {
+module.exports = {
+    mode: 'production',
     entry: path.resolve(__dirname, 'lib/index.js'),
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: env === 'dist' ? 'react-sortable.min.js' : 'react-sortable.js',
+        filename: (env === 'dist') ? 'react-sortable.min.js' : 'react-sortable.js',
         libraryTarget: 'umd',
         library: 'ReactSortable'
     },
-    plugins: plugins,
+    optimization: {
+        minimizer: [
+            (env === 'dist') && (
+                new TerserPlugin()
+            )
+        ].filter(Boolean)
+    },
+    plugins: [
+        new webpack.BannerPlugin(banner),
+    ],
     externals: {
         'react': {
             root: 'React',

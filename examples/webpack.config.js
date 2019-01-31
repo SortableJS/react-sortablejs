@@ -1,10 +1,11 @@
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var stylusLoader = require('stylus-loader');
-var nib = require('nib');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const stylusLoader = require('stylus-loader');
+const nib = require('nib');
+const babelConfig = require('../babel.config');
 
 module.exports = {
+    mode: 'development',
     devtool: 'source-map',
     entry: path.resolve(__dirname, 'index.jsx'),
     output: {
@@ -28,19 +29,33 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
+                options: {
+                    ...babelConfig
+                },
                 exclude: /(node_modules|bower_components)/
             },
             {
                 test: /\.styl$/,
                 use: [
                     'style-loader',
-                    'css-loader?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[local]---[hash:base64:5]',
+                            camelCase: true,
+                            importLoaders: 1
+                        }
+                    },
                     'stylus-loader'
                 ]
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
             },
             {
                 test: /\.(png|jpg)$/,
@@ -64,11 +79,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.LoaderOptionsPlugin({
-            debug: true,
-        }),
-        new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
         new stylusLoader.OptionsPlugin({
             default: {
                 // nib - CSS3 extensions for Stylus

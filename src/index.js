@@ -1,3 +1,3 @@
-import Sortable from './Sortable';
+const Sortable = require('./Sortable').default;
 
 module.exports = Sortable;
