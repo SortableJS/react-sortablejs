@@ -17,7 +17,7 @@ class App extends React.Component {
 
     simpleList = null;
 
-    addMoreItems() {
+    addMoreItems = () => {
         const items = [
             'Apple',
             'Banana',
@@ -33,8 +33,11 @@ class App extends React.Component {
             'Strawberry'
         ];
         const i = random(0, items.length - 1);
-        this.setState({ groupLeft: this.state.groupLeft.concat(items[i]) });
-    }
+        this.setState(state => ({
+            groupLeft: state.groupLeft.concat(items[i])
+        }));
+    };
+
     render() {
         const simpleList = this.state.simpleList.map((val, key) => (
             <li key={uniqueId()} data-id={val}>List Item {val}</li>
@@ -96,7 +99,7 @@ class App extends React.Component {
                         <button
                             type="button"
                             className="btn btn-default"
-                            onClick={::this.addMoreItems}
+                            onClick={this.addMoreItems}
                         >
                             Add more items
                         </button>
@@ -113,7 +116,6 @@ class App extends React.Component {
                                     }
                                 }}
                                 className="block-list"
-                                ref="group-left"
                                 onChange={(items) => {
                                     this.setState({ groupLeft: items });
                                 }}
@@ -135,7 +137,6 @@ class App extends React.Component {
                                 onChange={(items) => {
                                     this.setState({ groupRight: items });
                                 }}
-                                ref="group-right"
                             >
                                 {groupRight}
                             </Sortable>
