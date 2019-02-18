@@ -86,6 +86,15 @@ class Sortable extends Component {
         this.sortable = SortableJS.create(this.node, options);
     }
 
+    shouldComponentUpdate(nextProps) {
+        // If onChange is null, it is an UnControlled component
+        // Don't let React re-render it by setting return to false
+        if (!nextProps.onChange) {
+            return false;
+        }
+        return true;
+    }
+
     componentWillUnmount() {
         if (this.sortable) {
             this.sortable.destroy();
