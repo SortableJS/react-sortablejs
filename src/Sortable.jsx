@@ -1,6 +1,7 @@
 /* eslint consistent-return: 0 */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import SortableJS from 'sortablejs';
 
 const store = {
@@ -83,7 +84,7 @@ class Sortable extends Component {
             };
         });
 
-        this.sortable = SortableJS.create(this.node, options);
+        this.sortable = SortableJS.create(findDOMNode(this.node), options);
     }
 
     shouldComponentUpdate(nextProps) {
