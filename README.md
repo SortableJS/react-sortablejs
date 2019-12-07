@@ -4,6 +4,12 @@
 
 A React component built on top of Sortable (https://github.com/SortableJS/Sortable).
 
+## NOTE
+
+There is a more up to date version of this available for download at `react-sortablejs-typescript`, under the ['typescript' branch of this repo.](https://github.com/SortableJS/react-sortablejs/tree/typescript)
+
+We'll be shipping this once we create some tests and standardize the API. It's almost done so give it a try! :)
+
 - Demo: https://sortablejs.github.io/react-sortablejs/
 
 The [sample code](https://github.com/SortableJS/react-sortablejs/blob/master/examples/index.jsx) can be found in the [examples](https://github.com/SortableJS/react-sortablejs/tree/master/examples) directory.
