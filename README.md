@@ -85,8 +85,6 @@ npm install --save react-sortablejs
 yarn add react-sortablejs
 ```
 
-Please note that `sortablejs` is not required, as it's bundled in this component.
-
 ## Learn
 
 Here is the TLDR of what sortable is:

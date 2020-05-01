@@ -5,7 +5,7 @@
     "email": "waynevanson@gmail.com"
   },
   "license": "MIT",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -25,13 +25,13 @@
     "toc": "doctoc ."
   },
   "peerDependencies": {
+    "sortablejs": "^1.10.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
   "dependencies": {
     "@types/sortablejs": "^1.10.0",
     "classnames": "^2.2.6",
-    "sortablejs": "1.10.1",
     "tiny-invariant": "^1.0.6"
   },
   "devDependencies": {
