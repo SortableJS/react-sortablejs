@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { Options } from "sortablejs";
+import Sortable, { Options } from "sortablejs";
 import { MultiDragEvent } from "./react-sortable";
 import { AllMethodNames, ItemInterface, ReactSortableProps } from "./types";
 /**
@@ -22,7 +22,8 @@ export declare function createCustoms<T extends ItemInterface>(evt: MultiDragEve
 /** moves items form old index to new index without breaking anything ideally. */
 export declare function handleStateChanges<T extends ItemInterface>(normalized: Normalized<T>[], list: T[]): T[];
 export declare function handleStateRemove<T extends ItemInterface>(normalized: Normalized<T>[], list: T[]): T[];
-export declare function handleStateAdd<T extends ItemInterface>(normalized: Normalized<T>[], list: T[]): T[];
+export declare function handleStateAdd<T extends ItemInterface>(normalized: Normalized<T>[], list: T[], evt?: Sortable.SortableEvent,
+    clone?: ((currentItem: T, evt: Sortable.SortableEvent) => T) | undefined): T[];
 export declare function getMode(evt: MultiDragEvent): "multidrag" | "swap" | "normal";
 export declare function createNormalized<T extends ItemInterface>(inputs: Input[], list: T[]): Normalized<T>[];
 export interface Input {

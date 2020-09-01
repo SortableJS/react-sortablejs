@@ -216,11 +216,11 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
   // SORTABLE DOM HANDLING
 
   onAdd(evt: MultiDragEvent) {
-    const { list, setList } = this.props;
+    const { list, setList, clone } = this.props;
     const otherList = [...store.dragging!.props.list];
     const customs = createCustoms(evt, otherList);
     removeNodes(customs);
-    const newList = handleStateAdd(customs, list);
+    const newList = handleStateAdd(customs, list, evt, clone).map(item => ({ ...item, selected: false }));
     setList(newList, this.sortable, store);
   }
 

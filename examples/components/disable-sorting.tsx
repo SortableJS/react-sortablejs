@@ -24,6 +24,7 @@ export function DisableSorting() {
         list={list2}
         setList={setList2}
         animation={150}
+        clone={(item) => ({ ...item, id: createId(), createTag: Symbol(1) })}
         group={{ name: "disable-group-name", pull: "clone" }}
       >
         {list2.map(item => (

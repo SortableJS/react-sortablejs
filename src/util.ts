@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { Options } from "sortablejs";
+import Sortable, { Options } from "sortablejs";
 import { MultiDragEvent } from "./react-sortable";
 import { AllMethodNames, ItemInterface, ReactSortableProps } from "./types";
 
@@ -116,10 +116,15 @@ export function handleStateRemove<T extends ItemInterface>(
 
 export function handleStateAdd<T extends ItemInterface>(
   normalized: Normalized<T>[],
-  list: T[]
+  list: T[],
+  evt?: Sortable.SortableEvent,
+  clone?: ((currentItem: T, evt: Sortable.SortableEvent) => T) | undefined
 ): T[] {
   const newList = [...list];
-  normalized.forEach(curr => newList.splice(curr.newIndex, 0, curr.item));
+  normalized.forEach(curr => {
+    const newItem = (clone && evt) && clone(curr.item, evt); 
+    newList.splice(curr.newIndex, 0, newItem || curr.item)
+  });
   return newList;
 }
 
