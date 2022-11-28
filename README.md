@@ -202,7 +202,7 @@ The same as `setState` in `const [ state, setState] = useState([{ id: 1}, {id: 2
 
 ### clone
 
-If you're using `{group: { name: 'groupName', pull: 'clone'}}`, this means your in 'clone' mode. You should provide a function for this.
+If you're using `{group: { name: 'groupName', pull: 'clone'}}`, this means you're in 'clone' mode. You should provide a function for this.
 
 Check out the source code of the clone example for more information. I'll write it here soon.
 
