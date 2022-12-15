@@ -78,6 +78,9 @@ Please read the updated README.md at https://github.com/SortableJS/react-sortabl
     if (prevProps.disabled !== this.props.disabled && this.sortable) {
       this.sortable.option("disabled", this.props.disabled);
     }
+    if (prevProps.sort !== this.props.sort && this.sortable) {
+      this.sortable.option("sort", this.props.sort);
+    }
   }
 
   render(): JSX.Element {
