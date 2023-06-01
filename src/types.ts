@@ -139,6 +139,6 @@ export type UnHandledMethodNames = Exclude<
 >;
 
 /**
- * Same as `SortableMethodKeys` type but with out the string `onMove`.
+ * Same as `SortableMethodKeys` type but without the string `onMove`.
  */
 export type AllMethodsExceptMove = Exclude<AllMethodNames, "onMove">;

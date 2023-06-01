@@ -1,11 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 .idea
 .vscode
-.parcel-cache
 node_modules
 temp
 dist
 # todo - get story book only when releasing.
 storybook-static
-yarn.lock
-package-lock.json
+.parcel-cache

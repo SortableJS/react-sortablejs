@@ -95,8 +95,7 @@ export function createCustoms<T extends ItemInterface>(
   }
   /* eslint-enable */
 
-  const customs = createNormalized(custom, list);
-  return customs;
+  return createNormalized(custom, list);
 }
 
 /** moves items form old index to new index without breaking anything ideally. */
@@ -145,10 +144,9 @@ export function createNormalized<T extends ItemInterface>(
   inputs: Input[],
   list: T[]
 ): Normalized<T>[] {
-  const normalized = inputs
+  return inputs
     .map<Normalized<T>>((curr) => ({ ...curr, item: list[curr.oldIndex] }))
     .sort((a, b) => a.oldIndex - b.oldIndex);
-  return normalized;
 }
 
 export interface Input {

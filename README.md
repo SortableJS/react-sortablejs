@@ -240,7 +240,7 @@ export const BasicFunction: FC = (props) => {
 #### Custom Component
 
 When using a custom component in the `tag` prop, the only component it allows is a `forwardRef` component.
-Currently we only support components who use the `React.forwardRef` API.
+Currently, we only support components who use the `React.forwardRef` API.
 
 If it doesn't have one, you can add one using `React.forwardRef()`.
 
@@ -275,7 +275,7 @@ export const BasicFunction: FC = (props) => {
 ## How does it work?
 
 Sortable affects the DOM, adding, and removing nodes/css when it needs to in order to achieve the smooth transitions we all know an love.
-This component reverses many of it's actions of the DOM so React can handle this when the state changes.
+This component reverses many of its actions of the DOM so React can handle this when the state changes.
 
 ## Caveats / Gotchas
 
@@ -304,4 +304,4 @@ I hope to provide an example soon.
 We don't have anything that works 100%, but here I'd like to spit ball some potential avenues to look down.
 
 - Use `onMove` to handle state changes instead of `onAdd`,`onRemove`, etc.
-- Create a Sortable plugin specifically for react-sortbalejs
+- Create a Sortable plugin specifically for react-sortablejs
