@@ -37,8 +37,7 @@ const store: Store = { dragging: null };
 export class ReactSortable<T extends ItemInterface> extends Component<
   ReactSortableProps<T>
 > {
-  /* eslint-disable-next-line */
-  static defaultProps: Partial<ReactSortableProps<any>> = {
+  defaultProps: Partial<ReactSortableProps<any>> = {
     clone: (item) => item,
   };
 
