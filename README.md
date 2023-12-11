@@ -139,7 +139,7 @@ Those options are applied as follows.
 Sortable.create(element, {
   group: " groupName",
   animation: 200,
-  delayOnTouchStart: true,
+  delayOnTouchOnly: true,
   delay: 2,
 });
 
@@ -161,7 +161,7 @@ const App = () => {
       // here they are!
       group="groupName"
       animation={200}
-      delayOnTouchStart={true}
+      delayOnTouchOnly={true}
       delay={2}
     >
       {state.map((item) => (
